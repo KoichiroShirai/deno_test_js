@@ -1,0 +1,11 @@
+version: '3'
+volumes:
+    vendor:
+services:
+    app:
+        build: .
+        command: bash -c "source ~/.bash_profile && deno run --allow-net --allow-read app/main.ts"
+        ports:
+            - "5000:8000"
+        volumes:
+            - .:/app
